@@ -4,18 +4,15 @@ services:
     image: amir20/dozzle
     restart: unless-stopped
     environment:
-      - DOZZLE_USERNAME=${DOZZLE_USERNAME}
-      - DOZZLE_PASSWORD=${DOZZLE_PASSWORD}
-      - DOZZLE_KEY=${DOZZLE_KEY}
+      - DOZZLE_USERNAME
+      - DOZZLE_PASSWORD
+      - DOZZLE_KEY
       - DOZZLE_NO_ANALYTICS=true
       - DOZZLE_TAILSIZE=1000
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     networks:
       proxy_apps:
-    dns:
-      - "1.1.1.1"
-      - "1.0.0.1"
 
 networks:
   proxy_apps:
