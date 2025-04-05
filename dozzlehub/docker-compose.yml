@@ -10,7 +10,7 @@ services:
       - DOZZLE_AUTH_PROVIDER=simple
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-    entrypoint: ["/bin/sh", "-c", "dozzle generate $DOZZLE_USERNAME --password $DOZZLE_PASSWORD > /app/users.yml && /dozzle"]
+      - ./users.yml:/app/users.yml
     networks:
       proxy_apps:
 

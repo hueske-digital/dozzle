@@ -1,3 +1,5 @@
 # Hub
 
-Start with `docker-compose up -d` and configure a proxy host to port `8080`.
+- Generate users.yml:
+  - 
+- Start with `docker-compose up -d` and configure a proxy host to port `8080`.
