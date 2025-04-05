@@ -6,11 +6,12 @@ services:
     environment:
       - DOZZLE_USERNAME
       - DOZZLE_PASSWORD
-      - DOZZLE_KEY
       - DOZZLE_NO_ANALYTICS=true
-      - DOZZLE_TAILSIZE=1000
+      - DOZZLE_REMOTE_AGENT
+      - DOZZLE_AUTH_PROVIDER=simple
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
+    entrypoint: ["/bin/sh", "-c", "dozzle generate $DOZZLE_USERNAME --password $DOZZLE_PASSWORD > /app/users.yml && /dozzle"]
     networks:
       proxy_apps:
 
