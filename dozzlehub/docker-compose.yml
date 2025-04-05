@@ -3,8 +3,6 @@ services:
     image: amir20/dozzle
     restart: unless-stopped
     environment:
-      - DOZZLE_USERNAME
-      - DOZZLE_PASSWORD
       - DOZZLE_NO_ANALYTICS=true
       - DOZZLE_REMOTE_AGENT
       - DOZZLE_AUTH_PROVIDER=simple
