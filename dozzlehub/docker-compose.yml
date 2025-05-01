@@ -12,8 +12,25 @@ services:
       - ./users.yml:/data/users.yml
     networks:
       proxy_apps:
+      proxy_socket:
+
+  socketproxy:
+    image: lscr.io/linuxserver/socket-proxy:latest
+    restart: unless-stopped
+    read_only: true
+    networks:
+      proxy_socket:
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      - CONTAINERS=1
+      - EVENTS=1
+      - INFO=1
+    tmpfs:
+      - /run
 
 networks:
   proxy_apps:
     name: proxy_apps
     external: true
+  proxy_socket:
